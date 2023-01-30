@@ -1,0 +1,44 @@
+<div class="margin" style="text-align:center;">
+    <h4 style="color:rgb(0, 34, 128);text-align: center;"><strong>{{title}}</strong> </h4>
+
+    <form [formGroup]="studentForm">
+        <div class="form-group">
+            <input type="text" class="form-control w-100" formControlName="name" name="name" placeholder="Name">
+            <span class="error_message backgroundColor"
+                *ngIf="studentForm.get('name')?.errors?.['required']  && studentForm.get('name')?.touched"><b>Name
+                    cannot be empty!!</b> </span>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control w-100" formControlName="studentid" name="studentid"
+                placeholder="Student ID" [readOnly]="isEdit">
+            <span class="error_message backgroundColor"
+                *ngIf="studentForm.get('studentid')?.errors?.['required']  && studentForm.get('studentid')?.touched"><b>Student
+                    Id cannot be empty!!</b> </span>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control w-100" formControlName="age" name="age" placeholder="Age">
+            <span class="error_message backgroundColor"
+                *ngIf="studentForm.get('age')?.errors?.['required']  && studentForm.get('age')?.touched"><b>Age cannot
+                    be empty!!</b> </span>
+        </div>
+
+        <div class="form-group" style="float:left;">
+            <input type="radio" value="Male" formControlName="gender"> Male
+            <input type="radio" value="Female" formControlName="gender"> Female
+            <span class="error_message"
+                *ngIf="studentForm.get('gender')?.errors?.['required']  && studentForm.get('gender')?.touched"><b>Gender
+                    is required!!</b> </span>
+        </div>
+
+        <div class="form-group">
+            <input type="text" class="form-control w-100" formControlName="address" name="address"
+                placeholder="Address">
+            <span class="error_message backgroundColor"
+                *ngIf="studentForm.get('address')?.errors?.['required']  && studentForm.get('address')?.touched"><b>Address
+                    cannot be empty!!</b> </span>
+        </div>
+    </form>
+    <button (click)="resetForm()" type="button" class="btn btn-light">Reset</button>
+    <button (click)="submit()" style='margin-left: 10px;' type="button" [disabled]="studentForm.invalid"
+        class="btn btn-success align">Submit</button>
+</div>
