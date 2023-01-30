@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from './main-page/main-page/main-page.component';
-import { StudentFormComponent } from './student-form/student-form/student-form.component';
+import { StudentFormComponent } from './student/student-form/student-form.component';
 
 const routes: Routes = [
   {
@@ -17,10 +17,6 @@ const routes: Routes = [
     component : StudentFormComponent,
     data : {action : 'edit' }
   },
-  // {
-  //   path : '',
-  //   redirectTo : 'home'
-  // }
 ];
 
 @NgModule({

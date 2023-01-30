@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Student } from 'src/app/student-form/student-form/student-interface';
-import { StudentService } from 'src/app/student-form/student.service';
+import { Student } from 'src/app/student/student-form/student-interface';
+import { StudentService } from 'src/app/student/student.service';
 
 @Component({
   selector: 'app-main-page',
@@ -13,8 +13,6 @@ export class MainPageComponent implements OnInit {
   studentlist: Student[] = [];
 
   student!: Student;
-
-  selectedStudents: Map<any, Student> = new Map();
 
   constructor(public studentService: StudentService) {
 
@@ -39,13 +37,6 @@ export class MainPageComponent implements OnInit {
       this.fetchStudentList();
     }
     )
-  }
-
-  onCheckboxChange(event: any, student: Student) {
-    if (event.target.checked)
-      this.selectedStudents.set(student.id, student);
-    else
-      this.selectedStudents.delete(student.id);
   }
 
 }

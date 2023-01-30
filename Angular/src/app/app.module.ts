@@ -7,7 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainPageComponent } from './main-page/main-page/main-page.component';
-import { StudentFormComponent } from './student-form/student-form/student-form.component';
+import { StudentFormComponent } from './student/student-form/student-form.component';
 
 @NgModule({
   declarations: [
