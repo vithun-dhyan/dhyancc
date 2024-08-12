@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,9 +24,6 @@ import com.dhyan.angular.student.service.StudentServiceI;
 public class StudentRest {
 
 	@Autowired
-	private StudentRepo studentRepo;
-
-	@Autowired
 	private StudentServiceI studentService;
 
 	@PostMapping(value = "/create-random-student", produces = { "application/json" })
@@ -38,39 +37,38 @@ public class StudentRest {
 		student.setGender(rand.nextBoolean() ? Gender.MALE : Gender.FEMALE);
 		student.setAddress(randStr);
 		student = studentService.saveStudent(student);
-		studentService.doAudit(student);
 		return student;
 
 	}
 
-	@PostMapping(value = "/student", produces = { "application/json" })
+	@PostMapping(value = "/students", produces = { "application/json" })
 	public Student saveStudent(final @RequestBody Student student) {
 		studentService.saveStudent(student);
-		studentService.doAudit(student);
 		return student;
 	}
 
-	@GetMapping(value = "/student/{id}", produces = { "application/json" })
+	@GetMapping(value = "/students/{id}", produces = { "application/json" })
 	public Optional<Student> getStudentById(@PathVariable final long id) {
 		Optional<Student> student = studentService.getStudentById(id);
 		return student;
 	}
 
-	@PutMapping(value = "/updatestudent", produces = { "application/json" })
-	public Student updateStudent(final @RequestBody Student newStudent) {
-		Student student = studentService.updateStudent(newStudent);
+	@PutMapping(value = "/students/{id}", produces = { "application/json" })
+	public Student updateStudent(@PathVariable final long id, final @RequestBody Student studentToUpdate) {
+		Student student = studentService.updateStudent(studentToUpdate);
 		return student;
 	}
 
-	@GetMapping(value = "/studentlist", produces = { "application/json" })
+	@GetMapping(value = "/students", produces = { "application/json" })
 	public List<Student> getStudentList() {
-		List<Student> students = studentRepo.findAll();
+		List<Student> students = studentService.findAll();
 		return students;
 	}
 
-	@DeleteMapping(value = "/student/{id}", produces = { "application/json" })
-	public void deleteStudent(@PathVariable final long id) {
-		studentRepo.deleteById(id);
+	@DeleteMapping(value = "/students/{id}", produces = { "application/json" })
+	public ResponseEntity<Void> deleteStudent(@PathVariable final long id) {
+		boolean isPresent = studentService.deleteStudent(id);
+		return isPresent ? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
 	}
 
 }

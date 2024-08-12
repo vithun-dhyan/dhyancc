@@ -12,9 +12,11 @@ import javax.validation.constraints.Pattern;
 import com.sun.istack.NotNull;
 
 import lombok.Data;
+import lombok.ToString;
 
 @Entity
 @Data
+@ToString(of={"name"})
 public class Student {
 
 	public static enum Gender {

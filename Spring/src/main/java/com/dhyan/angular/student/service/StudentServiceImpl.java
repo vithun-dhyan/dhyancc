@@ -1,13 +1,12 @@
 package com.dhyan.angular.student.service;
 
+import java.util.List;
 import java.util.Optional;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.transaction.annotation.Propagation;  
-
+import org.springframework.transaction.annotation.Propagation;
 
 import com.dhyan.angular.audit.AuditLog;
 import com.dhyan.angular.audit.AuditLogRepo;
@@ -19,9 +18,7 @@ public class StudentServiceImpl implements StudentServiceI {
 
 	@Autowired
 	private StudentRepo studentRepo;
-	
-	@Autowired
-	private AuditLogRepo auditLogRepo;
+
 
 	@Override
 	public Student saveStudent(Student student) {
@@ -40,14 +37,21 @@ public class StudentServiceImpl implements StudentServiceI {
 		Student student = studentRepo.save(newStudent);
 		return student;
 	}
-	
-	@Transactional(propagation = Propagation.REQUIRES_NEW)
-	public void doAudit(Student student)
-	{
-		AuditLog auditlog = new AuditLog();
-		auditlog.setTime(System.currentTimeMillis());
-		auditlog.setMessage(student.getName()+" student is saved successfully");
-		auditLogRepo.save(auditlog);
+
+
+
+	@Override
+	public List<Student> findAll() {
+
+		return studentRepo.findAll();
+	}
+
+	@Override
+	public boolean deleteStudent(long id) {
+		Optional<Student> stuO = studentRepo.findById(id);
+		stuO.ifPresent(stu -> studentRepo.delete(stu));
+		return stuO.isPresent();
+
 	}
 
 }

@@ -8,43 +8,30 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import lombok.Data;
+
 @Entity
 @Table(name = "AUDITLOG")
+@Data
 public class AuditLog {
+
+	public static enum Operation {
+		ADD, UPDATE, DELETE
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "seqauditid")
 	@SequenceGenerator(name = "seqauditid", sequenceName = "seqauditid", allocationSize = 1)
 	@Column(name = "id", nullable = false)
-	private long id ;
-	
-	private long time;
+	private long id;
 
+	private long time;
+	
+	private Operation operation;
+
+	@Column(length = 512)
 	private String message;
 
-	
-	public long getId() {
-		return id;
-	}
 
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public long getTime() {
-		return time;
-	}
-
-	public void setTime(long time) {
-		this.time = time;
-	}
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
 
 }

@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
@@ -14,7 +15,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc
 @ComponentScan(basePackages = "com.dhyan.angular")
 @EnableScheduling
-public class AngularApplication extends SpringBootServletInitializer
+@EnableAspectJAutoProxy
+public class MyApplication extends SpringBootServletInitializer
 {
     /**
      * SpringBootApplication
@@ -22,7 +24,7 @@ public class AngularApplication extends SpringBootServletInitializer
      */
     public static void main(final String[] args)
     {
-        SpringApplication.run(AngularApplication.class, args);
+        SpringApplication.run(MyApplication.class, args);
     }
 
 }
