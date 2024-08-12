@@ -11,8 +11,8 @@
 	<groupId>com.dhyan</groupId>
 	<artifactId>angular</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
-	<name>angular</name>
+	<packaging>jar</packaging>
+	<name>angular-app</name>
 	<description>Angular Application</description>
 	<properties>
 		<java.version>1.8</java.version>
