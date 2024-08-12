@@ -21,7 +21,7 @@ export class StudentService {
     return this.httpClient.get<any>('/api/angular/student-management/studentlist');
   }
 
-  getStudent(id:number) :Observable<Student>
+  getStudent(id:number) : Observable<Student>
   {
      return this.httpClient.get<any>('/api/angular/student-management/student/' + id);
   }
