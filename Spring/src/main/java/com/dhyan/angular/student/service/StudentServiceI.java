@@ -11,4 +11,6 @@ public interface StudentServiceI {
 	Optional<Student> getStudentById(long id);
 
 	Student updateStudent(Student student);
+	
+	void doAudit(Student student);
 }
