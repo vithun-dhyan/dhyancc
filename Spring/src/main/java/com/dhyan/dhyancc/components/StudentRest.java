@@ -1,4 +1,4 @@
-package com.dhyan.angular.student;
+package com.dhyan.dhyancc.components;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,8 +16,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dhyan.angular.student.Student.Gender;
-import com.dhyan.angular.student.service.StudentServiceI;
+import com.dhyan.dhyancc.datamodel.Student;
+import com.dhyan.dhyancc.datamodel.Student.Gender;
+import com.dhyan.dhyancc.service.StudentServiceI;
 
 @RestController
 @RequestMapping("api/angular/student-management")

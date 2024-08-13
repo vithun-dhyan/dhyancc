@@ -1,4 +1,4 @@
-package com.dhyan.angular.student.service;
+package com.dhyan.dhyancc.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.annotation.Propagation;
 
-import com.dhyan.angular.audit.AuditLog;
-import com.dhyan.angular.audit.AuditLogRepo;
-import com.dhyan.angular.student.Student;
-import com.dhyan.angular.student.StudentRepo;
+import com.dhyan.dhyancc.audit.AuditLog;
+import com.dhyan.dhyancc.audit.AuditLogRepo;
+import com.dhyan.dhyancc.components.StudentRepo;
+import com.dhyan.dhyancc.datamodel.Student;
 
 @Service
 public class StudentServiceImpl implements StudentServiceI {

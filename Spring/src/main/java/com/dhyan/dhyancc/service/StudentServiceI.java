@@ -1,9 +1,9 @@
-package com.dhyan.angular.student.service;
+package com.dhyan.dhyancc.service;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.dhyan.angular.student.Student;
+import com.dhyan.dhyancc.datamodel.Student;
 
 public interface StudentServiceI {
 

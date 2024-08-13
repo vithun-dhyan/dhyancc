@@ -1,4 +1,4 @@
-package com.dhyan.angular.student;
+package com.dhyan.dhyancc.datamodel;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

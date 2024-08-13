@@ -1,4 +1,4 @@
-package com.dhyan.angular.audit;
+package com.dhyan.dhyancc.audit;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

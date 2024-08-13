@@ -1,4 +1,4 @@
-package com.dhyan.angular.audit;
+package com.dhyan.dhyancc.audit;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.dhyan.angular.audit.AuditLog.Operation;
-import com.dhyan.angular.student.Student;
+import com.dhyan.dhyancc.audit.AuditLog.Operation;
+import com.dhyan.dhyancc.datamodel.Student;
 
 import lombok.extern.slf4j.Slf4j;
 

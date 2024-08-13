@@ -1,4 +1,4 @@
-package com.dhyan.angular;
+package com.dhyan.dhyancc;
 
 
 import org.springframework.boot.SpringApplication;
@@ -13,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @SpringBootApplication
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.dhyan.angular")
+@ComponentScan(basePackages = "com.dhyan.dhyancc")
 @EnableScheduling
 @EnableAspectJAutoProxy
 public class MyApplication extends SpringBootServletInitializer
