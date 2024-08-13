@@ -1,7 +1,6 @@
 package com.dhyan.dhyancc.datamodel;
 
 import java.util.Calendar;
-import java.util.Date;
 
 import javax.annotation.PostConstruct;
 
@@ -9,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.dhyan.dhyancc.components.ExamRepo;
+import com.dhyan.dhyancc.components.StudentExamMarksRepo;
 import com.dhyan.dhyancc.components.StudentRepo;
 import com.dhyan.dhyancc.components.SubjectRepo;
 import com.dhyan.dhyancc.datamodel.Student.Gender;
+import com.dhyan.dhyancc.datamodel.StudentExamMarks.StudentExamID;
 
 @Component
 public class DBInit {
@@ -24,6 +25,9 @@ public class DBInit {
 
 	@Autowired
 	private ExamRepo examRepo;
+	
+	@Autowired
+	private StudentExamMarksRepo studentExamMarksRepo;
 
 	@PostConstruct
 	public void init() {
@@ -65,6 +69,11 @@ public class DBInit {
 			exam2.setSubject(subject2);
 			exam2.setDate(cal.getTime());
 			exam2 = examRepo.save(exam2);
+			
+			StudentExamMarks studentExamMarks = new StudentExamMarks();
+			studentExamMarks.setStudentExamID(new StudentExamID(exam1, student1));
+			studentExamMarks.setMarks(50);
+			studentExamMarksRepo.save(studentExamMarks);
 			
 
 		} catch (Throwable e) {
