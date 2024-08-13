@@ -1,6 +1,5 @@
 package com.dhyan.dhyancc.security;
 
-import java.util.Calendar;
 import java.util.Set;
 
 import javax.annotation.PostConstruct;
@@ -8,13 +7,6 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
-
-import com.dhyan.dhyancc.components.ExamRepo;
-import com.dhyan.dhyancc.components.StudentExamMarksRepo;
-import com.dhyan.dhyancc.components.StudentRepo;
-import com.dhyan.dhyancc.components.SubjectRepo;
-import com.dhyan.dhyancc.datamodel.Student.Gender;
-import com.dhyan.dhyancc.datamodel.StudentExamMarks.StudentExamID;
 
 @Component
 public class SecurityInit {
