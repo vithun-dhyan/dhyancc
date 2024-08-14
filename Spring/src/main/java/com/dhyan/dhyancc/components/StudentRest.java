@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dhyan.dhyancc.datamodel.Student;
 import com.dhyan.dhyancc.datamodel.Student.Gender;
+import com.dhyan.dhyancc.exceptions.CannotUpdateID;
 import com.dhyan.dhyancc.service.StudentServiceI;
 
 @RestController
@@ -55,7 +55,13 @@ public class StudentRest {
 	}
 
 	@PutMapping(value = "/students/{id}", produces = { "application/json" })
-	public Student updateStudent(@PathVariable final long id, final @RequestBody Student studentToUpdate) {
+	public Student updateStudent(@PathVariable final long id, final @RequestBody Student studentToUpdate)
+			throws CannotUpdateID {
+		if (studentToUpdate.getId() != null && id != studentToUpdate.getId()) {
+			throw new CannotUpdateID(String.format("%s passed in the path is not the same as %s in the request body",
+					id, studentToUpdate.getId()));
+		}
+		studentToUpdate.setId(id);
 		Student student = studentService.updateStudent(studentToUpdate);
 		return student;
 	}
