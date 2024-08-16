@@ -112,3 +112,11 @@ Now try with
 curl -v -u 'user2:user2' -X GET localhost:8080/api/angular/student-management/students
 
 When you do that, notice the logs that get printed on your server log (the console that you ran mvn spring-boot:run)
+
+------
+
+#15 Auditlog
+Copy all classes from com.dhyancc.handson.audit into your project
+-------
+#16 Run again (Same steps as 10)
+
