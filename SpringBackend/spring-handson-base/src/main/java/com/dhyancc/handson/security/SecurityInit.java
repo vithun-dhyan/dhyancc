@@ -7,8 +7,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import jakarta.annotation.PostConstruct;
+import lombok.extern.slf4j.Slf4j;
 
 @Component
+@Slf4j
 public class SecurityInit {
 
 	@Autowired
@@ -19,6 +21,12 @@ public class SecurityInit {
 
 	@PostConstruct
 	public void init() {
+		if(userRepo.count()>0)
+		{
+			log.info("data already exists");
+			return;
+		}
+			
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		try {
 			Role adminRole = new Role();

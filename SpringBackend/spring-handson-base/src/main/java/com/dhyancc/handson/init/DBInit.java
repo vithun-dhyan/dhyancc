@@ -37,6 +37,10 @@ public class DBInit {
 
 	@PostConstruct
 	public void init() {
+		if (studentRepo.count() > 0) {
+			log.info("data already exists");
+			return;
+		}
 
 		try {
 

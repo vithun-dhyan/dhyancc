@@ -1,12 +1,16 @@
+Note: Please create a postgres DB with name dhyancc, username dhyancc and password dhyancc before you proceed with this exercise.
+
 #1 Create 
 
 
 https://start.spring.io/#!type=maven-project&language=java&platformVersion=3.3.2&packaging=jar&jvmVersion=17&groupId=com.dhyancc&artifactId=spring-handson-base&name=spring-handson-base&description=Demo%20project%20for%20Spring%20Boot&packageName=com.dhyancc.handson&dependencies=lombok,web,data-jpa,postgresql
+
 -------
 #2 Download and Setup
 
 
 Download and extract the project, import it into eclipse
+
 -------
 #3 Setup datasource
 
@@ -20,6 +24,7 @@ Add the following to your application.properties
 
 
 When you specify ddl-auto, the saved data will be reset after each restart. Specifying the value as update will retain the values.
+
 -------
 #4 Run
 
