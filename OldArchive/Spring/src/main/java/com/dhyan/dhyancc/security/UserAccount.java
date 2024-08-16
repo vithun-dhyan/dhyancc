@@ -9,14 +9,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.UniqueConstraint;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Entity
 @Data
 @EqualsAndHashCode(of = "username")
+@ToString(exclude = { "password", "roles" })
 public class UserAccount {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,6 +25,7 @@ public class UserAccount {
 
 	@Column(unique = true)
 	private String username;
+
 	private String password;
 
 	@ManyToMany(fetch = FetchType.EAGER)

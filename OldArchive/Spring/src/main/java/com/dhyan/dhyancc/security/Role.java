@@ -8,10 +8,12 @@ import javax.persistence.Id;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Entity
 @Data
 @EqualsAndHashCode(of = "role")
+@ToString(of = "role")
 public class Role {
 
 	@Id

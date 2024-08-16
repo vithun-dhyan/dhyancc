@@ -4,6 +4,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -29,7 +30,8 @@ public class MyUserDetailsService implements UserDetailsService {
 						u.getRoles().stream().map(role -> new SimpleGrantedAuthority(role.getRole()))
 								.collect(Collectors.toList())))
 				.orElseThrow(() -> new UsernameNotFoundException("User " + username + " not found"));
-		log.info("User {} logging in", username);
+		log.info("User {} logging in with {}", username, userDetails.getAuthorities().stream()
+				.map(GrantedAuthority::getAuthority).collect(Collectors.joining(",")));
 		return userDetails;
 	}
 
