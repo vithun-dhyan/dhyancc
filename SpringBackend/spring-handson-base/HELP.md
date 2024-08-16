@@ -138,3 +138,43 @@ Copy all classes from com.dhyancc.handson.audit into your project
  Note: the current logged in user can be got usign the method Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
 Read about Aspects in SpringBoot, this deals with intercepting method calls
+
+
+
+
+=======================================
+#Few more things
+
+#A
+Try executing 
+
+	curl -v -u 'user2:user2' -X PUT localhost:8080/api/angular/student-management/students/1 --data '{
+	"id": 1,
+	"name": "StudentA",
+	"age": 10,
+	"gender": "MALE",
+	"address": "123 Address11111"
+	}' -H 'Content-Type: application/json'
+
+THis is to update the user, see how that works
+Also try to create or delete  a user
+------------------
+#B 
+
+Similar to Student, Exam, and those entities in the namespace com.dhyancc.handson.datamodel, we have a couple of entities in the namespace com.dhyancc.handson.security, namely Role and UserAccount.. Notice that this has ManyToMany relationship. Try to understand how this relationship is maintained in the database, notice that a table "user_account_roles" got created in the database eventhough you never created an entity with that name.
+-----------------
+
+#C
+
+In MyUserDetailsService.java.. try to understand what the below expression does (try to learn about Java streams.
+
+u.getRoles().stream().map(role -> 
+		new SimpleGrantedAuthority(role.getRole())
+	)
+	.collect(Collectors.toList())
+
+------------------
+#D
+
+
+

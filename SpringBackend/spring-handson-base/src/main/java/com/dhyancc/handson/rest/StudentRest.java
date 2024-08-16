@@ -54,7 +54,11 @@ public class StudentRest {
 	}
 
 	@PutMapping(value = "/students/{id}", produces = { "application/json" })
-	public Student updateStudent(@PathVariable final long id, final @RequestBody Student studentToUpdate) {
+	public Student updateStudent(@PathVariable final long id, final @RequestBody Student studentToUpdate)
+			throws IDUpdateException {
+		if (studentToUpdate.getId() != null && !studentToUpdate.getId().equals(id)) {
+			throw new IDUpdateException();
+		}
 		Student student = studentService.updateStudent(studentToUpdate);
 		return student;
 	}
