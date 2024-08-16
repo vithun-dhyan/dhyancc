@@ -8,8 +8,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.dhyan.dhyancc.audit.AuditLog.Operation;
-import com.dhyan.dhyancc.datamodel.Student;
+import com.dhyancc.handson.audit.AuditLog.Operation;
 
 import lombok.extern.slf4j.Slf4j;
 

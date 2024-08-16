@@ -11,10 +11,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Entity
 @Data
 @EqualsAndHashCode(of = "username")
+@ToString(of="username")
 public class UserAccount {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
