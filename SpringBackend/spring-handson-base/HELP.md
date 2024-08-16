@@ -176,5 +176,22 @@ u.getRoles().stream().map(role ->
 ------------------
 #D
 
+Try executing the below query
+
+curl -v -u 'user2:user2' -X PUT localhost:8080/api/angular/student-management/students/1 --data '{
+"id": 2,
+"name": "StudentA",
+"age": 10,
+"gender": "MALE",
+"address": "123 Address11111"
+}' -H 'Content-Type: application/json'
+
+
+
+It must fail, thats becasuse the IDs in teh path and the JSON are differnt (1 and 2).. see how we used a custom exception to throw the status code as 422.  IDUpdateException class has an annotaiton about what status code must be sent if this error happens.
+
+		if (studentToUpdate.getId() != null && !studentToUpdate.getId().equals(id)) {
+			throw new IDUpdateException();
+		}
 
 

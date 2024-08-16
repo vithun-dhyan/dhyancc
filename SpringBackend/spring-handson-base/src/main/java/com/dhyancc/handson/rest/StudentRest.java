@@ -59,6 +59,7 @@ public class StudentRest {
 		if (studentToUpdate.getId() != null && !studentToUpdate.getId().equals(id)) {
 			throw new IDUpdateException();
 		}
+		studentToUpdate.setId(id);
 		Student student = studentService.updateStudent(studentToUpdate);
 		return student;
 	}
