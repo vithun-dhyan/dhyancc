@@ -32,7 +32,7 @@ Run the following from your project path on your console (make sure you are on t
 
 mvn spring-boot:run
 
-Your springboot applicaiton must get started
+Your springboot application must get started
 
 -------
 #5 Copy JPA entities
@@ -53,7 +53,7 @@ Now you must see the tables for your java classes in the database
 ------
 #7 Data model init
 
-Copy the class com.dhyancc.handson.init.DBInit into your project, also copy all repo classes avaialble in com.dhyancc.handson.repo into your project
+Copy the class com.dhyancc.handson.init.DBInit into your project, also copy all repo classes available in com.dhyancc.handson.repo into your project
 
 -------
 #8 Run Again
@@ -62,14 +62,14 @@ Run the following from your project path on your console (make sure you are on t
 
 mvn spring-boot:run
 
-Your springboot applicaiton must get started
+Your springboot application must get started
 
 Now you must see the tables for your java classes in the database, you will also have values in your tables this time. Read the steps in DBInit class to understand what happened.
 
 -------
 #9 Copy service and rest api code
 
-Copy the service and REST Api code from the namespaces com.dhyancc.handson.rest and com.dhyancc.handson.service into your project. Remember what was dicused in teh session, what each layer is for? Also read about the annotations used there.
+Copy the service and REST API code from the namespaces com.dhyancc.handson.rest and com.dhyancc.handson.service into your project. Remember what was discussed in the session, what each layer is for? Also read about the annotations used there.
 
 -------
 #10 Run Again
@@ -78,7 +78,7 @@ Run the following from your project path on your console (make sure you are on t
 
 mvn spring-boot:run
 
-Your springboot applicaiton must get started
+Your springboot application must get started
 
 -------
 #11 Run REST API
@@ -99,6 +99,8 @@ curl -v  -X GET localhost:8080/api/angular/student-management/students
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 		
+Add the above dependency to your pom.xml
+		
 Move classes from com.dhyancc.handson.security into your project
 		
 -------
@@ -110,7 +112,7 @@ Try
 
 curl -v  -X GET localhost:8080/api/angular/student-management/students
 
-You will notice that this retuned 401, read about 401 HTTP status on the web.
+You will notice that this returned 401, read about 401 HTTP status on the web.
 
 Now try with 
 
@@ -141,7 +143,7 @@ Copy all classes from com.dhyancc.handson.audit into your project
  
  The last one got created for your request, notice that the username got tracked.. Review the code in AuditLogAspect to understand how this works
  
- Note: the current logged in user can be got usign the method Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+ Note: The current logged in user can be got using the method Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
 Read about Aspects in SpringBoot, this deals with intercepting method calls
 
@@ -162,7 +164,7 @@ Try executing
 	"address": "123 Address11111"
 	}' -H 'Content-Type: application/json'
 
-THis is to update the user, see how that works
+This is to update the user, see how that works
 Also try to create or delete  a user
 ------------------
 #B 
@@ -195,7 +197,7 @@ curl -v -u 'user2:user2' -X PUT localhost:8080/api/angular/student-management/st
 
 
 
-It must fail, thats becasuse the IDs in teh path and the JSON are differnt (1 and 2).. see how we used a custom exception to throw the status code as 422.  IDUpdateException class has an annotaiton about what status code must be sent if this error happens.
+It must fail, that's because the IDs in the path and the JSON are different (1 and 2).. see how we used a custom exception to throw the status code as 422.  IDUpdateException class has an annotation about what status code must be sent if this error happens.
 
 		if (studentToUpdate.getId() != null && !studentToUpdate.getId().equals(id)) {
 			throw new IDUpdateException();
