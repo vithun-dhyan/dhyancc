@@ -125,6 +125,7 @@ Login is handled by MyUserDetailsService
 #15 Auditlog
 
 Copy all classes from com.dhyancc.handson.audit into your project
+
 -------
 #16 Run again (Same steps as 10)
  
@@ -167,6 +168,7 @@ Also try to create or delete  a user
 #B 
 
 Similar to Student, Exam, and those entities in the namespace com.dhyancc.handson.datamodel, we have a couple of entities in the namespace com.dhyancc.handson.security, namely Role and UserAccount.. Notice that this has ManyToMany relationship. Try to understand how this relationship is maintained in the database, notice that a table "user_account_roles" got created in the database eventhough you never created an entity with that name.
+
 -----------------
 
 #C
