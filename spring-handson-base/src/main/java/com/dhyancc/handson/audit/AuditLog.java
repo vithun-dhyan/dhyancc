@@ -23,6 +23,8 @@ public class AuditLog {
 	@SequenceGenerator(name = "seqauditid", sequenceName = "seqauditid", allocationSize = 1)
 	@Column(name = "id", nullable = false)
 	private long id;
+	
+	private String username;
 
 	private long time;
 	

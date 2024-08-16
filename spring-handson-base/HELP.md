@@ -113,10 +113,28 @@ curl -v -u 'user2:user2' -X GET localhost:8080/api/angular/student-management/st
 
 When you do that, notice the logs that get printed on your server log (the console that you ran mvn spring-boot:run)
 
-------
+Login is handled by MyUserDetailsService
 
+
+------
 #15 Auditlog
+
 Copy all classes from com.dhyancc.handson.audit into your project
 -------
 #16 Run again (Same steps as 10)
+ 
+ 
+ Try creating a new random user by invoking the URL
+ curl -v  -u 'user2:user2' -X POST localhost:8080/api/angular/student-management/create-random-student 
+ 
+ Check the records in the table 
+ 
+ select * from auditlog
+ 
+ The first few entries got created for the default records
+ 
+ The last one got created for your request, notice that the username got tracked.. Review the code in AuditLogAspect to understand how this works
+ 
+ Note: the current logged in user can be got usign the method Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
+Read about Aspects in SpringBoot, this deals with intercepting method calls
