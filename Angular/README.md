@@ -12,7 +12,7 @@
 
 ## Copy app component
 
-- Copy the contents of app component and replace it in your project (ts, css, html).
+- Copy & replace the contents of app component it in your project (ts, css, html).
 
 <b> NOTE - The given project has been built using Node.js v18.20.4, Angular cli v13.0.4, Angular v13.0.3 </b>
 
@@ -23,9 +23,11 @@
 
 ## Copy main-page component
 
-- Copy the contents of main-page component into your project (ts, css, html), also copy the dependent student service and student-interface files and declare the components in the app module.
+- Copy the main-page component into your project (ts, css, html), also copy the dependent student service and student-interface files and declare the components in the app module.
 
 - Configure routes for main-page component in app-routing.module.ts
+
+- Import necessary modules in your app module.
 
 - To fetch the data for main-page component disable your basic authentication in your spring-boot application and start your spring-boot server. After starting the spring-boot server configure proxy to your angular app
     - Copy the file `proxy.conf.json` from cloned repo to your project root directory (in path where package.json exists).
@@ -62,7 +64,7 @@ Now you should be able to load the main-page component in `http://localhost:4200
 
 - Copy the login module into your project(ts, html, css, routing.module.ts, module.ts, service.ts)
 
-- Declare the login module & services in your app module.
+- Add an import for the login module & providers for the services in your app module.
 
 ## Build again
 
