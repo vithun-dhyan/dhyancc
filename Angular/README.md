@@ -2,7 +2,7 @@
 
 1) Run `ng new <your_project_name>` and wait till your project is generated.
 
-2) After verifying run `ng serve` for a dev server. Navigate to `http://localhost:4200/` to verify the project creation.
+2) After project creation navigate into your project and run `ng serve` for a dev server. Navigate to `http://localhost:4200/` to verify the project creation.
 
 3) Import this project to vscode.
 
