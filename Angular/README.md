@@ -2,7 +2,9 @@
 
 - Create a new folder for your angular project and navigate into it.
 
-- Run `ng new <your_project_name>` - during installation it will ask to add routes for your app give `yes` and for styling choose `scss` as your styling format.
+- Run `ng new <your_project_name>` - during installation it will ask to add routes for your app give `yes` and for styling choose `scss` as your styling format and give `no` for Server-Side Rendering (SSR) and Static Site Generation (SSG/Prerendering).
+
+<b> NOTE - If you are using angular version 17 and above use this command to create the project `ng new <your_project_name> --standalone=false`(ex. ng new dhyancc --standalone=false).</b>
 
 - After the project creation navigate into your created project directory and run `ng serve` for a dev server. Navigate to `http://localhost:4200/` to verify the project creation.
 
@@ -12,7 +14,7 @@
 
 - Copy the contents of app component into your project (ts, css, html).
 
-NOTE - In your project you might not have `app.module.ts` instead you may have `app.config.ts` which is as same as `app.module.ts`, in this case explore how to use/configure using `app.config.ts`.
+<b> NOTE - The given project has been built using Node.js v18.20.4, Angular cli v13.0.4, Angular v13.0.3 </b>
 
 ## Build
 
@@ -21,13 +23,12 @@ NOTE - In your project you might not have `app.module.ts` instead you may have `
 
 ## Copy main-page component
 
-- Copy the contents of main-page component into your project (ts, css, html), also copy the dependent student service and student-interface files and declare the components the app module.
+- Copy the contents of main-page component into your project (ts, css, html), also copy the dependent student service and student-interface files and declare the components in the app module.
 
 - Configure routes for main-page component in app-routing.module.ts
 
 - To fetch the data for main-page component disable your basic authentication in your spring-boot application and start your spring-boot server. After starting the spring-boot server configure proxy to your angular app
-    - Create file named `proxy.conf.json` in project's root directory (in path where package.json exists).
-    - Copy the contents for `proxy.conf.json` from cloned repo (proxy.conf.json).
+    - Copy the file `proxy.conf.json` from cloned repo to your project root directory (in path where package.json exists).
     - `proxy.conf.json` (this file used to redirect your http requests to your spring-boot server to fetch the data, otherwise angular will lookup the api's in your angular server itself which would result in error).
 
 ## Build again
@@ -39,7 +40,7 @@ Now you should be able to load the main-page component in `http://localhost:4200
 
 ## Copy student-form component
 
-- Copy the student-form component into your project (ts, css, html) and also copy the routes for the student-form from app-routing module and declare the components the app module.
+- Copy the student-form component into your project (ts, css, html) and also copy the routes for the student-form from app-routing module and declare the components in the app module.
 
 ## Build again
 
