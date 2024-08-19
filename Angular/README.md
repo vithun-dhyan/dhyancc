@@ -4,15 +4,15 @@
 
 - Run `ng new <your_project_name>` - during installation it will ask to add routes for your app give `yes` and for styling choose `scss` as your styling format and give `no` for Server-Side Rendering (SSR) and Static Site Generation (SSG/Prerendering).
 
-<b> NOTE - If you are using angular version 17 and above use this command to create the project `ng new <your_project_name> --standalone=false`(ex. ng new dhyancc --standalone=false).</b>
+<b> NOTE - If you are using angular version 15 and above use this command to create the project `ng new <your_project_name> --standalone=false`(ex. ng new dhyancc --standalone=false).</b>
 
-- After the project creation navigate into your created project directory and run `ng serve` for a dev server. Navigate to `http://localhost:4200/` to verify the project creation.
+- After the project creation navigate into your created project directory and run `ng serve` for a dev server. Access this url `http://localhost:4200/` to verify the project creation.
 
-- Import this project to vscode.
+- Import this project into vscode.
 
 ## Copy app component
 
-- Copy the contents of app component into your project (ts, css, html).
+- Copy the contents of app component and replace it in your project (ts, css, html).
 
 <b> NOTE - The given project has been built using Node.js v18.20.4, Angular cli v13.0.4, Angular v13.0.3 </b>
 
@@ -52,7 +52,9 @@ Now you should be able to load the main-page component in `http://localhost:4200
 
 - At this step you should be able to perform CRUD operations with student form and navigate between pages. All these CRUD operations were not secured by login.
 
-- Go to the spring-boot server and enable the basic authentication and restart the server and  verify the api access by without passing credentials to the api and it should not work with proper credentials it should work.
+- Go to the spring-boot server and enable the basic authentication and restart the server and  verify the api access by without passing credentials it should not work.
+
+- With proper credentials the api's should work.
 
 - Verify your angular app should not be able to access api's after enabling authentication in backend.
 
