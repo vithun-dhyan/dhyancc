@@ -14,6 +14,7 @@ export class StudentFormComponent implements OnInit {
   title :string = "STUDENT FORM";
   id!:number;
   action: string = '';
+  isEdit: boolean = false;
 
   constructor(public studentService: StudentService, private location: Location, private activatedRoute: ActivatedRoute, private route: Router) {
     this.studentForm = new FormGroup({
@@ -28,8 +29,10 @@ export class StudentFormComponent implements OnInit {
   ngOnInit(): void {
     this.action = this.activatedRoute.snapshot.data['action'];
     if (this.action == 'edit') {
+      this.isEdit = true;
       this.title = "EDIT STUDENT FORM";
       this.id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+      this.studentForm.controls['studentid'].disable();
       this.editStudent();
     }
 
@@ -42,7 +45,7 @@ export class StudentFormComponent implements OnInit {
         this.studentForm.setValue({
           name: student.name,
           age: student.age,
-          studentid: student.studentid,
+          studentid: student.id,
           address: student.address,
           gender: student.gender
 

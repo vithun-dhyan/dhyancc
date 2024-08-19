@@ -17,6 +17,14 @@ const routes: Routes = [
     component : StudentFormComponent,
     data : {action : 'edit' }
   },
+  {
+    path : 'login',
+    loadChildren: () => import('./login-module/login-routing.module').then(m => m.LoginRoutingModule)
+  },
+  {
+    path : '',
+    loadChildren: () => import('./login-module/login-routing.module').then(m => m.LoginRoutingModule)
+  }
 ];
 
 @NgModule({

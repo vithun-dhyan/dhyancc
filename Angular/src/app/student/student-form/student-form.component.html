@@ -10,7 +10,7 @@
         </div>
         <div class="form-group">
             <input type="text" class="form-control w-100" formControlName="studentid" name="studentid"
-                placeholder="Student ID">
+                placeholder="Student ID" ng-disabled="this.isEdit">
             <span class="error_message"
                 *ngIf="studentForm.get('studentid')?.errors?.['required']  && studentForm.get('studentid')?.touched"><b>Student
                     Id cannot be empty!!</b> </span>
@@ -23,8 +23,8 @@
         </div>
 
         <div class="form-group" style="float:left;">
-            <input type="radio" value="Male" formControlName="gender"> Male
-            <input type="radio" value="Female" formControlName="gender"> Female
+            <input type="radio" value="MALE" formControlName="gender"> Male
+            <input type="radio" value="FEMALE" formControlName="gender"> Female
             <span class="error_message"
                 *ngIf="studentForm.get('gender')?.errors?.['required']  && studentForm.get('gender')?.touched"><b>Gender
                     is required!!</b> </span>

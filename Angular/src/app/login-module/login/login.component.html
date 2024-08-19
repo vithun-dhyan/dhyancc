@@ -1,0 +1,22 @@
+<div class="margin" style="text-align:center;">
+    <h4 style="color:rgb(0, 34, 128);text-align: center;"><strong>Login</strong> </h4>
+
+    <form [formGroup]="studentForm">
+        <div class="form-group">
+            <input type="text" class="form-control w-100" formControlName="name" name="name" placeholder="UserName">
+            <span class="error_message"
+                *ngIf="studentForm.get('name')?.errors?.['required']  && studentForm.get('name')?.touched"><b>Name
+                    cannot be empty!!</b> </span>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control w-100" formControlName="password" name="studentid"
+                placeholder="Password">
+            <span class="error_message"
+                *ngIf="studentForm.get('studentid')?.errors?.['required']  && studentForm.get('studentid')?.touched"><b>Student
+                    Id cannot be empty!!</b> </span>
+        </div>
+
+    </form>
+    <button (click)="dologin()" style='margin-left: 10px;' type="button" [disabled]="studentForm.invalid"
+        class="btn btn-success align">Login</button>
+</div>
